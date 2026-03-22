@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600;700&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #121316;
+            color: #E3E2E6;
+            margin: 0;
+        }
+        .font-headline { font-family: 'Bricolage Grotesque', sans-serif; }
+        .font-data { font-family: 'JetBrains Mono', monospace; }
+        .font-brand { font-family: 'Space Grotesk', sans-serif; }
+        
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Indigo Dashed Border for Dropzone */
+        .dashed-grid-border {
+            background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='6' ry='6' stroke='%238083FF' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+            border-radius: 0.375rem;
+        }
+
+        .primary-gradient {
+            background: linear-gradient(135deg, #C0C1FF 0%, #8083FF 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "secondary-container": "#42447b",
+                "on-secondary-fixed": "#13144a",
+                "on-primary": "#1000a9",
+                "background": "#121316",
+                "on-surface": "#e3e2e6",
+                "primary-container": "#8083ff",
+                "outline-variant": "#464554",
+                "primary": "#c0c1ff",
+                "outline": "#908fa0",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-secondary-fixed-variant": "#404178",
+                "on-tertiary": "#4f2500",
+                "on-error": "#690005",
+                "surface-container-low": "#1b1b1f",
+                "tertiary-fixed-dim": "#ffb783",
+                "on-primary-container": "#0d0096",
+                "inverse-surface": "#e3e2e6",
+                "inverse-on-surface": "#303034",
+                "on-tertiary-fixed-variant": "#703700",
+                "tertiary-fixed": "#ffdcc5",
+                "on-tertiary-container": "#452000",
+                "on-tertiary-fixed": "#301400",
+                "secondary-fixed-dim": "#c0c1ff",
+                "secondary-fixed": "#e1e0ff",
+                "tertiary-container": "#d97721",
+                "on-primary-fixed": "#07006c",
+                "on-background": "#e3e2e6",
+                "primary-fixed-dim": "#c0c1ff",
+                "primary-fixed": "#e1e0ff",
+                "tertiary": "#ffb783",
+                "surface-container-lowest": "#0d0e11",
+                "error": "#ffb4ab",
+                "surface-variant": "#343538",
+                "surface-container": "#1f1f23",
+                "secondary": "#c0c1ff",
+                "inverse-primary": "#494bd6",
+                "error-container": "#93000a",
+                "surface-tint": "#c0c1ff",
+                "surface-container-highest": "#343538",
+                "on-surface-variant": "#c7c4d7",
+                "on-secondary": "#292a60",
+                "surface-container-high": "#292a2d",
+                "surface-bright": "#38393c",
+                "on-error-container": "#ffdad6",
+                "surface-dim": "#121316",
+                "surface": "#121316",
+                "on-secondary-container": "#b2b3f2"
+              },
+              fontFamily: {
+                "headline": ["Space Grotesk"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="flex min-h-screen">
+<!-- SideNavBar Component -->
+<aside class="w-[240px] h-screen sticky left-0 top-0 bg-[#1B1B1F] dark:bg-slate-900 flex flex-col py-8 gap-6 no-border z-50">
+<!-- Brand Header -->
+<div class="px-6 flex items-center gap-3">
+<div class="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container text-lg" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#E3E2E6] dark:text-white font-brand">The Vault</h1>
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant font-data">Secure Redaction</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="px-4">
+<button class="w-full primary-gradient text-on-primary-container py-3 rounded-md font-bold text-sm transition-transform scale-95 active:scale-90 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Redaction
+            </button>
+</div>
+<!-- Main Navigation -->
+<nav class="flex-1 flex flex-col px-2">
+<!-- Active Tab: Dashboard -->
+<a class="text-[#C0C1FF] bg-[#292A2D] dark:bg-slate-800 font-bold border-l-2 border-[#C0C1FF] px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] text-sm font-medium tracking-tight">Dashboard</span>
+</a>
+<a class="text-[#C7C4D7] hover:text-[#E3E2E6] hover:bg-[#292A2D] px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="edit_document">edit_document</span>
+<span class="font-['Space_Grotesk'] text-sm font-medium tracking-tight">Workspace</span>
+</a>
+<a class="text-[#C7C4D7] hover:text-[#E3E2E6] hover:bg-[#292A2D] px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="enhanced_encryption">enhanced_encryption</span>
+<span class="font-['Space_Grotesk'] text-sm font-medium tracking-tight">Vault</span>
+</a>
+<a class="text-[#C7C4D7] hover:text-[#E3E2E6] hover:bg-[#292A2D] px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-['Space_Grotesk'] text-sm font-medium tracking-tight">History</span>
+</a>
+</nav>
+<!-- Footer Navigation -->
+<nav class="flex flex-col px-2 mt-auto border-t border-outline-variant/10 pt-4">
+<a class="text-[#C7C4D7] hover:text-[#E3E2E6] hover:bg-[#292A2D] px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-['Space_Grotesk'] text-sm font-medium tracking-tight">Audit Logs</span>
+</a>
+<a class="text-[#C7C4D7] hover:text-[#E3E2E6] hover:bg-[#292A2D] px-4 py-3 flex items-center gap-3 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Space_Grotesk'] text-sm font-medium tracking-tight">Settings</span>
+</a>
+<div class="px-4 py-4 mt-2 flex items-center gap-3 bg-surface-container-highest/20 rounded-xl mx-2">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="User Profile Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQYpYtVy2JGlI7-DSukd2Dmg2SOTvO204X05kdeKj6KVY8j6rwAlI2ywJ2ZTt2d0mEnkn4Sd99D814YzI19IUM_I91n_KWoIIB8PEkNAxwLSm8pbhhkR4iZujiQHWxeu3Jj1r1TM7FfqmBNIsUzRDaqWWbOMPDbe6xKyWSf3hOMeJw0jpmo95gHSKp9d5605U8gUimZn6BF1YZlqGs_OUPHyOXBUHSd1q_48Ubww_CPn6A1lR2dHLf1omW0AnM2tsb01xAaLjPhQ"/>
+<div class="overflow-hidden">
+<p class="text-xs font-bold text-on-surface truncate">Alex Sterling</p>
+<p class="text-[10px] text-on-surface-variant truncate">Chief Editor</p>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Content Shell -->
+<main class="flex-1 flex flex-col min-w-0 bg-surface">
+<!-- TopNavBar Component -->
+<header class="h-16 w-full sticky top-0 z-40 bg-[#121316] dark:bg-slate-950 flex justify-between items-center px-8 border-b border-[#464554]/20 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-6">
+<span class="font-['JetBrains_Mono'] text-[0.6875rem] uppercase tracking-widest text-[#C0C1FF] border-b-2 border-[#C0C1FF] pb-1">File Status: Active</span>
+<span class="font-['JetBrains_Mono'] text-[0.6875rem] uppercase tracking-widest text-[#C7C4D7] font-medium hover:text-white transition-opacity cursor-crosshair">PII Scan: 84%</span>
+</div>
+</div>
+<!-- Search and Actions -->
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-lowest border-none border-b border-outline-variant/20 focus:ring-0 focus:border-primary text-xs w-64 pl-10 py-2 font-data transition-all" placeholder="Search Vault Documents..." type="text"/>
+</div>
+<div class="flex items-center gap-4 border-l border-outline-variant/20 pl-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="security">security</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-[10px] font-bold uppercase tracking-widest border border-outline-variant/30 hover:bg-surface-container-highest transition-colors text-on-surface">Export Vault</button>
+<button class="px-4 py-2 text-[10px] font-bold uppercase tracking-widest primary-gradient text-on-primary-container rounded-sm shadow-lg shadow-primary/10">Finalize Redaction</button>
+</div>
+</div>
+</header>
+<!-- Page Content Canvas -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8 max-w-7xl mx-auto w-full">
+<!-- Dashboard Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h2 class="text-4xl font-headline font-bold text-on-surface tracking-tight">Editorial Dashboard</h2>
+<p class="text-on-surface-variant font-body mt-2">Welcome back, Alex. You have <span class="text-primary font-bold">12 documents</span> requiring immediate redaction.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-high px-6 py-3 rounded-xl border-l-4 border-primary">
+<p class="text-[10px] font-data uppercase tracking-widest text-on-surface-variant">System Integrity</p>
+<p class="text-lg font-headline font-bold text-on-surface">Optimal</p>
+</div>
+</div>
+</section>
+<!-- Bento Stats Overview -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-surface-container-low p-6 rounded-xl group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="visibility_off">visibility_off</span>
+</div>
+<span class="text-[10px] font-data text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">+12.4%</span>
+</div>
+<p class="text-on-surface-variant font-data text-xs uppercase tracking-widest">Total Redacted</p>
+<h3 class="text-3xl font-headline font-bold mt-1">42,892</h3>
+<p class="text-[10px] text-on-surface-variant mt-2">Entities removed this month</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="policy">policy</span>
+</div>
+<span class="text-[10px] font-data text-on-surface-variant bg-surface-container-highest px-2 py-0.5 rounded-full">Secure</span>
+</div>
+<p class="text-on-surface-variant font-data text-xs uppercase tracking-widest">Security Scans</p>
+<h3 class="text-3xl font-headline font-bold mt-1">1,204</h3>
+<p class="text-[10px] text-on-surface-variant mt-2">PII leak attempts blocked</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl group hover:bg-surface-container-high transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="draft">draft</span>
+</div>
+<span class="text-[10px] font-data text-primary bg-primary/10 px-2 py-0.5 rounded-full">8 Active</span>
+</div>
+<p class="text-on-surface-variant font-data text-xs uppercase tracking-widest">Active Files</p>
+<h3 class="text-3xl font-headline font-bold mt-1">24</h3>
+<p class="text-[10px] text-on-surface-variant mt-2">Requiring secondary review</p>
+</div>
+</section>
+<!-- Upload Dropzone Section -->
+<section class="w-full">
+<div class="dashed-grid-border h-64 w-full flex flex-col items-center justify-center bg-surface-container-lowest/50 hover:bg-surface-container-lowest transition-all group cursor-pointer relative overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="p-4 bg-primary-container/20 rounded-full mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-4xl">upload_file</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-on-surface">Upload PDF to The Vault</h3>
+<p class="text-on-surface-variant font-body mt-1">Drag and drop or <span class="text-primary font-bold">browse files</span></p>
+<p class="text-[10px] font-data uppercase tracking-tighter text-outline mt-4">MAX FILE SIZE: 500MB • AES-256 ENCRYPTED</p>
+</div>
+</section>
+<!-- Recent Documents Table -->
+<section class="bg-surface-container-low rounded-xl overflow-hidden">
+<div class="px-8 py-6 flex justify-between items-center border-b border-outline-variant/10">
+<h3 class="text-xl font-headline font-bold">Recent Documents</h3>
+<button class="text-xs font-data text-primary hover:underline flex items-center gap-2">
+                        View All History <span class="material-symbols-outlined text-xs">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high/50 font-data text-[10px] uppercase tracking-widest text-on-surface-variant">
+<tr>
+<th class="px-8 py-4 font-medium">Document Name</th>
+<th class="px-8 py-4 font-medium">Status</th>
+<th class="px-8 py-4 font-medium">Date Modified</th>
+<th class="px-8 py-4 font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Legal_Procurement_Q3.pdf</p>
+<p class="text-[10px] font-data text-on-surface-variant">2.4 MB • 42 Pages</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold uppercase tracking-wider border border-green-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                        Success
+                                    </span>
+</td>
+<td class="px-8 py-5 font-data text-xs text-on-surface-variant">OCT 24, 2023 14:20</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 px-3 py-1.5 rounded">Redact</button>
+<button class="text-[10px] font-bold uppercase tracking-widest text-error hover:bg-error/10 px-3 py-1.5 rounded">Delete</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Contract_Termination_A1.pdf</p>
+<p class="text-[10px] font-data text-on-surface-variant">1.1 MB • 8 Pages</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-yellow-500/10 text-yellow-400 text-[10px] font-bold uppercase tracking-wider border border-yellow-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>
+                                        Warning
+                                    </span>
+</td>
+<td class="px-8 py-5 font-data text-xs text-on-surface-variant">OCT 23, 2023 09:15</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 px-3 py-1.5 rounded">Redact</button>
+<button class="text-[10px] font-bold uppercase tracking-widest text-error hover:bg-error/10 px-3 py-1.5 rounded">Delete</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">description</span>
+<div>
+<p class="text-sm font-bold text-on-surface">Financial_Audit_Internal.pdf</p>
+<p class="text-[10px] font-data text-on-surface-variant">14.8 MB • 112 Pages</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold uppercase tracking-wider border border-green-500/20">
+<span class="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                                        Success
+                                    </span>
+</td>
+<td class="px-8 py-5 font-data text-xs text-on-surface-variant">OCT 22, 2023 18:44</td>
+<td class="px-8 py-5 text-right">
+<div class="flex items-center justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-primary/10 px-3 py-1.5 rounded">Redact</button>
+<button class="text-[10px] font-bold uppercase tracking-widest text-error hover:bg-error/10 px-3 py-1.5 rounded">Delete</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<!-- Global Crosshair Cursor Simulation Overlay -->
+<div class="fixed pointer-events-none inset-0 z-50">
+<!-- Minimal subtle crosshair effect in a corner to hint at the redaction cursor brand rule -->
+<div class="absolute w-4 h-4 border border-primary/40 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"></div>
+<div class="absolute w-[1px] h-8 bg-primary/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute w-8 h-[1px] bg-primary/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+</div>
+</body></html>

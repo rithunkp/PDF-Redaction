@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600;800&amp;family=DM+Sans:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#42447b",
+                        "on-secondary-fixed": "#13144a",
+                        "on-primary": "#1000a9",
+                        "background": "#121316",
+                        "on-surface": "#e3e2e6",
+                        "primary-container": "#8083ff",
+                        "outline-variant": "#464554",
+                        "primary": "#c0c1ff",
+                        "outline": "#908fa0",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#404178",
+                        "on-tertiary": "#4f2500",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1b1b1f",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-container": "#0d0096",
+                        "inverse-surface": "#e3e2e6",
+                        "inverse-on-surface": "#303034",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary-container": "#452000",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed": "#e1e0ff",
+                        "tertiary-container": "#d97721",
+                        "on-primary-fixed": "#07006c",
+                        "on-background": "#e3e2e6",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "primary-fixed": "#e1e0ff",
+                        "tertiary": "#ffb783",
+                        "surface-container-lowest": "#0d0e11",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#343538",
+                        "surface-container": "#1f1f23",
+                        "secondary": "#c0c1ff",
+                        "inverse-primary": "#494bd6",
+                        "error-container": "#93000a",
+                        "surface-tint": "#c0c1ff",
+                        "surface-container-highest": "#343538",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-secondary": "#292a60",
+                        "surface-container-high": "#292a2d",
+                        "surface-bright": "#38393c",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#121316",
+                        "surface": "#121316",
+                        "on-secondary-container": "#b2b3f2"
+                    },
+                    fontFamily: {
+                        "headline": ["Bricolage Grotesque"],
+                        "body": ["DM Sans"],
+                        "label": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .redaction-box {
+            background: #000000;
+            box-shadow: 0 0 0 1px rgba(192, 193, 255, 0.1);
+        }
+        .glass-panel {
+            background: rgba(52, 53, 56, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .custom-crosshair {
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component Hierarchy) -->
+<nav class="h-16 w-full sticky top-0 z-40 flex justify-between items-center px-8 w-full bg-[#121316] dark:bg-slate-950 border-b border-[#464554]/20 font-['JetBrains_Mono'] text-[0.6875rem] uppercase tracking-widest cursor-crosshair transition-all">
+<div class="flex items-center gap-6">
+<span class="text-on-surface-variant font-bold text-sm tracking-tighter normal-case font-['Space_Grotesk']">The Vault Editorial</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex gap-4">
+<span class="text-[#C0C1FF] border-b-2 border-[#C0C1FF] pb-1">File Status: Active</span>
+<span class="text-[#C7C4D7] font-medium">PII Scan: 84%</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-[#C0C1FF] hover:text-white transition-opacity">notifications</span>
+<span class="material-symbols-outlined text-[#C0C1FF] hover:text-white transition-opacity">security</span>
+<span class="material-symbols-outlined text-[#C0C1FF] hover:text-white transition-opacity">help_outline</span>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-1.5 bg-surface-container-highest text-[#C7C4D7] rounded-md hover:text-white transition-all">Export Vault</button>
+<button class="px-4 py-1.5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-md shadow-lg shadow-primary/10">Finalize Redaction</button>
+</div>
+<img class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="User Profile circular avatar icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4wO5lyjqFNslrysjIkI5bbRl2P1_1xXl9U23c3bTOWRxlhJmmPi2Y_VujXrbdioVz0abJqRotxTkxavVWYqJDT7kZPd0GppyOZlu0gm5Uv_XT2qsEMvP_iI6dvUivj8UPuX9NA4U44qiUU4fjxWKkf4Jyfe1elgJEZrTePOaWgNB9E0n6KDnjc_douYafPluPSppBeYpziKqYCIcLYnpFvljTz_e22_VVsQkDU0Si_gRQ9DZ6ZqrWIfr2D_Zt5BRRqWGlc5MDNQ"/>
+</div>
+</nav>
+<main class="flex-grow flex flex-col items-center justify-center px-6 py-12 max-w-7xl mx-auto w-full">
+<!-- Processing Status Header -->
+<div class="text-center mb-12 space-y-4">
+<div class="inline-flex items-center gap-3 px-4 py-2 bg-surface-container-high rounded-full border border-outline-variant/10 mb-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label text-xs text-primary uppercase tracking-[0.2em]">Security Protocol Engaged</span>
+</div>
+<h1 class="text-5xl font-headline font-extrabold tracking-tight text-on-surface">Sanitizing Document...</h1>
+<p class="text-on-surface-variant max-w-md mx-auto font-body text-lg">Applying cryptographic overlays and deep-tissue data removal to ensure zero PII leakage.</p>
+</div>
+<!-- Progress Indicator Section -->
+<div class="w-full max-w-2xl mb-16">
+<div class="flex justify-between items-end mb-3 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">
+<span>Verification Stage 4/4</span>
+<span class="text-primary">89% COMPLETE</span>
+</div>
+<div class="h-3 w-full bg-surface-container-lowest rounded-full overflow-hidden border border-outline-variant/5">
+<div class="h-full bg-gradient-to-r from-primary to-primary-container w-[89%] relative">
+<div class="absolute inset-0 bg-[linear-gradient(45deg,rgba(255,255,255,0.15)_25%,transparent_25%,transparent_50%,rgba(255,255,255,0.15)_50%,rgba(255,255,255,0.15)_75%,transparent_75%,transparent)] bg-[length:24px_24px] opacity-20"></div>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-center gap-3 text-on-surface-variant font-label text-[11px]">
+<span class="material-symbols-outlined text-primary text-sm animate-spin">refresh</span>
+                Encrypting metadata footprints...
+            </div>
+</div>
+<!-- Preview Card: Editorial Focus -->
+<div class="relative group w-full max-w-4xl">
+<!-- Glassmorphic Decorative Background Element -->
+<div class="absolute -inset-4 bg-gradient-to-tr from-primary/5 to-transparent rounded-[2rem] blur-2xl -z-10 opacity-50"></div>
+<div class="bg-surface-container-low rounded-xl overflow-hidden shadow-2xl border border-outline-variant/10">
+<!-- Preview Toolbar -->
+<div class="px-6 py-4 bg-surface-container flex justify-between items-center border-b border-outline-variant/10">
+<div class="flex items-center gap-4">
+<span class="font-headline font-bold text-on-surface">Final Sanitized Preview</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] font-label text-on-surface-variant rounded">V2.4_FINAL</span>
+</div>
+<div class="flex gap-2">
+<button class="p-1.5 hover:bg-surface-variant rounded transition-colors"><span class="material-symbols-outlined text-sm">zoom_in</span></button>
+<button class="p-1.5 hover:bg-surface-variant rounded transition-colors"><span class="material-symbols-outlined text-sm">open_in_full</span></button>
+</div>
+</div>
+<!-- The "Blurred" PDF Canvas -->
+<div class="aspect-[1.414/1] w-full bg-surface-container-lowest p-12 relative overflow-hidden select-none">
+<div class="w-full h-full opacity-30 blur-md space-y-8">
+<div class="h-8 w-1/3 bg-on-surface-variant/20 rounded"></div>
+<div class="space-y-3">
+<div class="h-3 w-full bg-on-surface-variant/10 rounded"></div>
+<div class="h-3 w-full bg-on-surface-variant/10 rounded"></div>
+<div class="h-3 w-[90%] bg-on-surface-variant/10 rounded"></div>
+</div>
+<div class="space-y-3">
+<div class="h-3 w-full bg-on-surface-variant/10 rounded"></div>
+<div class="h-3 w-2/3 bg-on-surface-variant/10 rounded"></div>
+</div>
+<div class="h-32 w-full bg-on-surface-variant/5 rounded"></div>
+<div class="space-y-3">
+<div class="h-3 w-full bg-on-surface-variant/10 rounded"></div>
+<div class="h-3 w-full bg-on-surface-variant/10 rounded"></div>
+</div>
+</div>
+<!-- Sharp Redaction Boxes (The "Truth" Layer) -->
+<div class="absolute inset-0 p-12 pointer-events-none">
+<!-- Redaction Box 1 -->
+<div class="absolute top-24 left-16 w-48 h-6 redaction-box flex items-center px-2">
+<div class="w-1 h-3 bg-error mr-2"></div>
+<span class="font-label text-[8px] text-white/40 uppercase tracking-tighter">CONFIDENTIAL_REMOVED</span>
+</div>
+<!-- Redaction Box 2 -->
+<div class="absolute top-48 left-64 w-32 h-5 redaction-box flex items-center px-2">
+<div class="w-1 h-3 bg-error mr-2"></div>
+<span class="font-label text-[8px] text-white/40 uppercase tracking-tighter">PII_STRIPPED</span>
+</div>
+<!-- Redaction Box 3 -->
+<div class="absolute bottom-40 left-32 w-56 h-8 redaction-box flex items-center px-2">
+<div class="w-1 h-4 bg-error mr-2"></div>
+<span class="font-label text-[8px] text-white/40 uppercase tracking-tighter">FINANCIAL_DATA_PROTECTED</span>
+</div>
+</div>
+<!-- Overlay Tag -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 glass-panel border border-white/10 px-8 py-4 rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">verified_user</span>
+<div>
+<p class="font-headline font-bold text-white text-lg leading-tight">Secure Preview</p>
+<p class="font-body text-xs text-on-surface-variant">Non-interactive rendering enabled</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Tray -->
+<div class="mt-16 flex flex-col items-center gap-6">
+<div class="flex gap-4">
+<button class="px-8 py-4 bg-surface-container-high border border-outline-variant/20 rounded-md font-bold text-on-surface hover:bg-surface-bright transition-all flex items-center gap-2">
+<span class="material-symbols-outlined">arrow_back</span>
+                    Back to Editor
+                </button>
+<button class="px-12 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-headline font-extrabold text-lg rounded-md shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">cloud_download</span>
+                    Download Sanitized PDF
+                </button>
+</div>
+<p class="font-label text-[10px] text-on-surface-variant/60 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">lock</span>
+                Automated deletion scheduled in 59:22
+            </p>
+</div>
+</main>
+<!-- SideNav (Shared Component Style - Fixed Hidden) -->
+<aside class="hidden md:flex flex-col h-full py-8 w-[240px] h-screen fixed left-0 top-0 bg-[#1B1B1F] dark:bg-slate-900 no-border gap-6 font-['Space_Grotesk'] text-sm font-medium tracking-tight -translate-x-full">
+<!-- Structural Placeholder for the Shell -->
+<div class="px-8 mb-8">
+<span class="text-xl font-bold tracking-tighter text-[#E3E2E6] dark:text-white">The Vault</span>
+</div>
+</aside>
+<!-- Footer Meta (Editorial style) -->
+<footer class="w-full px-12 py-8 mt-12 flex justify-between items-center border-t border-outline-variant/10 opacity-60">
+<div class="flex items-center gap-8 font-label text-[10px] uppercase tracking-widest text-on-surface-variant">
+<span>Server: VAULT-OMEGA-01</span>
+<span>Latency: 14ms</span>
+<span>Encryption: AES-256-GCM</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-2 h-2 rounded-full bg-green-500"></div>
+<span class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant">Systems Nominal</span>
+</div>
+</footer>
+</body></html>

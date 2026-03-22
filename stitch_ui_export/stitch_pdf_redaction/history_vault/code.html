@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Bricolage+Grotesque:opsz,wght@12..96,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0e11;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #464554;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#42447b",
+                        "on-secondary-fixed": "#13144a",
+                        "on-primary": "#1000a9",
+                        "background": "#121316",
+                        "on-surface": "#e3e2e6",
+                        "primary-container": "#8083ff",
+                        "outline-variant": "#464554",
+                        "primary": "#c0c1ff",
+                        "outline": "#908fa0",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#404178",
+                        "on-tertiary": "#4f2500",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1b1b1f",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-container": "#0d0096",
+                        "inverse-surface": "#e3e2e6",
+                        "inverse-on-surface": "#303034",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary-container": "#452000",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed": "#e1e0ff",
+                        "tertiary-container": "#d97721",
+                        "on-primary-fixed": "#07006c",
+                        "on-background": "#e3e2e6",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "primary-fixed": "#e1e0ff",
+                        "tertiary": "#ffb783",
+                        "surface-container-lowest": "#0d0e11",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#343538",
+                        "surface-container": "#1f1f23",
+                        "secondary": "#c0c1ff",
+                        "inverse-primary": "#494bd6",
+                        "error-container": "#93000a",
+                        "surface-tint": "#c0c1ff",
+                        "surface-container-highest": "#343538",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-secondary": "#292a60",
+                        "surface-container-high": "#292a2d",
+                        "surface-bright": "#38393c",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#121316",
+                        "surface": "#121316",
+                        "on-secondary-container": "#b2b3f2"
+                    },
+                    fontFamily: {
+                        "headline": ["Bricolage Grotesque", "Space Grotesk"],
+                        "body": ["DM Sans", "Inter"],
+                        "label": ["JetBrains Mono", "Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary selection:text-on-primary-container">
+<div class="flex min-h-screen">
+<!-- SideNavBar Shared Component -->
+<aside class="w-[240px] h-screen sticky left-0 top-0 bg-[#1B1B1F] dark:bg-slate-900 flex flex-col h-full py-8 no-border gap-6 flat no shadows">
+<div class="px-6 mb-4">
+<div class="text-xl font-bold tracking-tighter text-[#E3E2E6] dark:text-white font-['Space_Grotesk'] flex items-center gap-2">
+<span class="material-symbols-outlined text-[#C0C1FF]" data-icon="lock">lock</span>
+                    The Vault
+                </div>
+<div class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant/60 mt-1 font-label">Secure Redaction</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-[#C7C4D7] hover:text-[#E3E2E6] transition-all hover:bg-[#292A2D] dark:hover:bg-slate-800 font-['Space_Grotesk'] text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-[#C7C4D7] hover:text-[#E3E2E6] transition-all hover:bg-[#292A2D] dark:hover:bg-slate-800 font-['Space_Grotesk'] text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="edit_document">edit_document</span>
+                    Workspace
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-[#C0C1FF] bg-[#292A2D] dark:bg-slate-800 font-bold border-l-2 border-[#C0C1FF] font-['Space_Grotesk'] text-sm tracking-tight scale-95 active:scale-90 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="enhanced_encryption" style="font-variation-settings: 'FILL' 1;">enhanced_encryption</span>
+                    Vault
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-md text-[#C7C4D7] hover:text-[#E3E2E6] transition-all hover:bg-[#292A2D] dark:hover:bg-slate-800 font-['Space_Grotesk'] text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                    History
+                </a>
+</nav>
+<div class="px-4 mb-4">
+<button class="w-full py-3 px-4 rounded-md bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Redaction
+                </button>
+</div>
+<div class="px-2 mt-auto border-t border-outline-variant/10 pt-4">
+<a class="flex items-center gap-3 px-4 py-2 text-[#C7C4D7] hover:text-[#E3E2E6] transition-all hover:bg-[#292A2D] dark:hover:bg-slate-800 font-['Space_Grotesk'] text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+                    Audit Logs
+                </a>
+<a class="flex items-center gap-3 px-4 py-2 text-[#C7C4D7] hover:text-[#E3E2E6] transition-all hover:bg-[#292A2D] dark:hover:bg-slate-800 font-['Space_Grotesk'] text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="flex-1 flex flex-col bg-surface overflow-hidden">
+<!-- TopNavBar Shared Component -->
+<header class="h-16 w-full sticky top-0 z-40 bg-[#121316] dark:bg-slate-950 flex justify-between items-center px-8 border-b border-[#464554]/20 shadow-sm dark:shadow-none">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<span class="font-['JetBrains_Mono'] text-[0.6875rem] uppercase tracking-widest text-[#C0C1FF] border-b-2 border-[#C0C1FF] pb-1">File Status: Active</span>
+<span class="font-['JetBrains_Mono'] text-[0.6875rem] uppercase tracking-widest text-[#C7C4D7] font-medium hover:text-white transition-opacity cursor-crosshair">PII Scan: 84%</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-outline-variant/20 pr-6">
+<span class="material-symbols-outlined text-[#C0C1FF] cursor-pointer hover:opacity-70 transition-all" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-[#C0C1FF] cursor-pointer hover:opacity-70 transition-all" data-icon="security">security</span>
+<span class="material-symbols-outlined text-[#C0C1FF] cursor-pointer hover:opacity-70 transition-all" data-icon="help_outline">help_outline</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-1.5 rounded-md border border-outline-variant/30 text-[10px] uppercase font-label tracking-widest text-on-surface-variant hover:border-primary/50 transition-colors">Export Vault</button>
+<button class="px-4 py-1.5 rounded-md bg-primary-container/20 text-primary text-[10px] uppercase font-label tracking-widest hover:bg-primary-container/30 transition-colors">Finalize Redaction</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20 bg-surface-container-high">
+<img class="w-full h-full object-cover grayscale brightness-90" data-alt="User professional portrait for profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ-YupGyqB2R_yUte-25Ss1HLSDjEnO-eBpCXDUHmgJpYaHLmfn4RUmMfvrxkV2WSxK9NFkIA3Dl_8_N3PN4N3rfegdp6clvv0Qml5sqJFJb_ocO1sYGvGrjI8AlgP3uZKIoUTyCCK0sc3QFdi-uBXLJL-NTf-tYi9KWRywcnLNSOo7eX7beQynYGkltn5xSMpHz5oQ5IFSqvwDyDLPzWH7pS7lkZxtTTJij39bK95titx9HP390CWAX3jzyAulddQSZUG74q05A"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Data Table Section -->
+<section class="flex-1 p-8 overflow-y-auto">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-2">Secured Files</h1>
+<p class="text-on-surface-variant font-body text-sm max-w-lg">Access and manage high-integrity redacted documents. All files are encrypted at rest with AES-256 and monitored via immutable audit logs.</p>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface-container-low px-4 py-2 rounded-md flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none text-xs font-label focus:ring-0 w-48 text-on-surface p-0" placeholder="Search hash or name..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Modern Data Table -->
+<div class="w-full bg-surface-container-low/50 rounded-xl overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high/40">
+<th class="px-6 py-4 text-[11px] font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/10">File Name</th>
+<th class="px-6 py-4 text-[11px] font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/10 text-center">Redactions</th>
+<th class="px-6 py-4 text-[11px] font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/10">Timestamp</th>
+<th class="px-6 py-4 text-[11px] font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/10">Security Hash</th>
+<th class="px-6 py-4 text-[11px] font-label font-bold uppercase tracking-[0.2em] text-on-surface-variant border-b border-outline-variant/10 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<div class="text-sm font-medium text-on-surface">legal_contract_v4.pdf</div>
+<div class="text-[10px] text-on-surface-variant font-label">2.4 MB • APPLICATION/PDF</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="font-label text-primary text-lg font-bold">142</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-on-surface-variant">OCT 24, 2023</div>
+<div class="text-[10px] text-outline opacity-70">10:45:12 AM</div>
+</td>
+<td class="px-6 py-5">
+<code class="text-[10px] font-label bg-surface-container-highest/50 px-2 py-1 rounded text-outline group-hover:text-primary transition-colors">SHA-256: 8f3c...12e9</code>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="download">download</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<div class="text-sm font-medium text-on-surface">quarterly_earnings_internal.xlsx</div>
+<div class="text-[10px] text-on-surface-variant font-label">840 KB • MS-EXCEL</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="font-label text-primary text-lg font-bold">87</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-on-surface-variant">OCT 23, 2023</div>
+<div class="text-[10px] text-outline opacity-70">04:12:33 PM</div>
+</td>
+<td class="px-6 py-5">
+<code class="text-[10px] font-label bg-surface-container-highest/50 px-2 py-1 rounded text-outline group-hover:text-primary transition-colors">SHA-256: 4a9d...f021</code>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="download">download</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-bright/20 transition-colors">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="lock" style="font-variation-settings: 'FILL' 1;">lock</span>
+<div>
+<div class="text-sm font-medium text-on-surface">medical_record_patient_001.pdf</div>
+<div class="text-[10px] text-on-surface-variant font-label">1.2 MB • APPLICATION/PDF</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-5 text-center">
+<span class="font-label text-primary text-lg font-bold">312</span>
+</td>
+<td class="px-6 py-5">
+<div class="text-xs font-label text-on-surface-variant">OCT 22, 2023</div>
+<div class="text-[10px] text-outline opacity-70">09:01:05 AM</div>
+</td>
+<td class="px-6 py-5">
+<code class="text-[10px] font-label bg-surface-container-highest/50 px-2 py-1 rounded text-outline group-hover:text-primary transition-colors">SHA-256: 12bc...99a0</code>
+</td>
+<td class="px-6 py-5 text-right">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="download">download</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination / Stats -->
+<div class="mt-6 flex justify-between items-center px-4">
+<div class="text-[10px] font-label text-on-surface-variant tracking-wider uppercase">Showing 3 of 124 Secure Entries</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-primary/50 text-primary bg-primary/10 text-xs font-label">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container-high transition-all text-xs font-label">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Audit Log Drawer (Sidebar) -->
+<aside class="w-80 border-l border-outline-variant/10 bg-surface-container-low/30 p-6 flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xs font-label font-bold uppercase tracking-widest text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                            Audit Log
+                        </h2>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" data-icon="refresh">refresh</span>
+</div>
+<div class="flex-1 overflow-y-auto space-y-6 pr-2">
+<!-- Log Entry -->
+<div class="relative pl-6 before:content-[''] before:absolute before:left-[3px] before:top-2 before:bottom-[-24px] before:w-[1px] before:bg-outline-variant/30">
+<div class="absolute left-0 top-1 w-2 h-2 rounded-full bg-primary ring-4 ring-primary/10"></div>
+<div class="text-[10px] font-label text-outline uppercase tracking-tighter mb-1">10:45 AM</div>
+<div class="text-xs font-medium text-on-surface leading-snug">PII Scan completed for <span class="text-primary">legal_contract_v4.pdf</span></div>
+<div class="mt-2 flex items-center gap-2 bg-success/10 text-[#22C55E] text-[9px] font-label px-2 py-0.5 rounded border border-[#22C55E]/20 w-max">
+<span class="material-symbols-outlined text-[10px]" data-icon="check_circle">check_circle</span>
+                                COMPLETED
+                            </div>
+</div>
+<!-- Log Entry -->
+<div class="relative pl-6 before:content-[''] before:absolute before:left-[3px] before:top-2 before:bottom-[-24px] before:w-[1px] before:bg-outline-variant/30">
+<div class="absolute left-0 top-1 w-2 h-2 rounded-full bg-primary/40 ring-4 ring-primary/5"></div>
+<div class="text-[10px] font-label text-outline uppercase tracking-tighter mb-1">09:12 AM</div>
+<div class="text-xs font-medium text-on-surface leading-snug">Vault encryption key rotated by Administrator</div>
+<p class="text-[10px] text-on-surface-variant mt-1 italic">Event ID: SEC-994-02</p>
+</div>
+<!-- Log Entry -->
+<div class="relative pl-6 before:content-[''] before:absolute before:left-[3px] before:top-2 before:bottom-[-24px] before:w-[1px] before:bg-outline-variant/30">
+<div class="absolute left-0 top-1 w-2 h-2 rounded-full bg-primary/40 ring-4 ring-primary/5"></div>
+<div class="text-[10px] font-label text-outline uppercase tracking-tighter mb-1">Yesterday</div>
+<div class="text-xs font-medium text-on-surface leading-snug">Multiple PII leaks detected in <span class="text-error">internal_leak_test.doc</span></div>
+<div class="mt-2 flex items-center gap-2 bg-error/10 text-error text-[9px] font-label px-2 py-0.5 rounded border border-error/20 w-max">
+<span class="material-symbols-outlined text-[10px]" data-icon="warning">warning</span>
+                                FLAGGED
+                            </div>
+</div>
+<!-- Log Entry -->
+<div class="relative pl-6">
+<div class="absolute left-0 top-1 w-2 h-2 rounded-full bg-primary/40 ring-4 ring-primary/5"></div>
+<div class="text-[10px] font-label text-outline uppercase tracking-tighter mb-1">Oct 22</div>
+<div class="text-xs font-medium text-on-surface leading-snug">New redaction pattern "GDPR-Standard" applied</div>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-high border border-outline-variant/20 rounded text-[10px] font-label uppercase tracking-widest text-on-surface-variant hover:text-primary transition-all">View All Logs</button>
+</aside>
+</div>
+</main>
+</div>
+<!-- Empty State Variant Overlay (Hidden by Default) -->
+<div class="fixed inset-0 z-50 bg-background/80 backdrop-blur-md flex items-center justify-center pointer-events-none opacity-0 transition-opacity duration-500 hidden" id="empty-state-preview">
+<div class="text-center max-w-sm p-12 bg-surface-container rounded-3xl border border-outline-variant/10 shadow-2xl">
+<div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 relative">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="security" style="font-variation-settings: 'FILL' 0;">security</span>
+<div class="absolute -right-1 -top-1 w-6 h-6 bg-error rounded-full flex items-center justify-center border-2 border-surface-container">
+<span class="material-symbols-outlined text-[14px] text-on-error font-bold" data-icon="close">close</span>
+</div>
+</div>
+<h2 class="text-2xl font-headline font-bold text-on-surface mb-3">Vault is Empty</h2>
+<p class="text-on-surface-variant font-body text-sm mb-8 leading-relaxed">No secured files found in this workspace. Upload your first document to begin the redaction and hashing process.</p>
+<button class="px-8 py-3 bg-primary text-on-primary-container font-bold rounded-lg text-sm transition-transform active:scale-95 pointer-events-auto">
+                Begin Secure Upload
+            </button>
+</div>
+</div>
+<!-- Redaction Cursor Placeholder (Custom Design Element) -->
+<div class="fixed top-0 left-0 w-6 h-6 border border-primary/30 pointer-events-none z-[100] hidden md:block" style="transform: translate(-50%, -50%);">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-px h-full bg-primary/40"></div>
+<div class="h-px w-full bg-primary/40 absolute"></div>
+</div>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+</body></html>

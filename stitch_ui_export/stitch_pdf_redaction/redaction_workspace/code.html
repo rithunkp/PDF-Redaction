@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-container": "#42447b",
+                        "on-secondary-fixed": "#13144a",
+                        "on-primary": "#1000a9",
+                        "background": "#121316",
+                        "on-surface": "#e3e2e6",
+                        "primary-container": "#8083ff",
+                        "outline-variant": "#464554",
+                        "primary": "#c0c1ff",
+                        "outline": "#908fa0",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "on-secondary-fixed-variant": "#404178",
+                        "on-tertiary": "#4f2500",
+                        "on-error": "#690005",
+                        "surface-container-low": "#1b1b1f",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-container": "#0d0096",
+                        "inverse-surface": "#e3e2e6",
+                        "inverse-on-surface": "#303034",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "tertiary-fixed": "#ffdcc5",
+                        "on-tertiary-container": "#452000",
+                        "on-tertiary-fixed": "#301400",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "secondary-fixed": "#e1e0ff",
+                        "tertiary-container": "#d97721",
+                        "on-primary-fixed": "#07006c",
+                        "on-background": "#e3e2e6",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "primary-fixed": "#e1e0ff",
+                        "tertiary": "#ffb783",
+                        "surface-container-lowest": "#0d0e11",
+                        "error": "#ffb4ab",
+                        "surface-variant": "#343538",
+                        "surface-container": "#1f1f23",
+                        "secondary": "#c0c1ff",
+                        "inverse-primary": "#494bd6",
+                        "error-container": "#93000a",
+                        "surface-tint": "#c0c1ff",
+                        "surface-container-highest": "#343538",
+                        "on-surface-variant": "#c7c4d7",
+                        "on-secondary": "#292a60",
+                        "surface-container-high": "#292a2d",
+                        "surface-bright": "#38393c",
+                        "on-error-container": "#ffdad6",
+                        "surface-dim": "#121316",
+                        "surface": "#121316",
+                        "on-secondary-container": "#b2b3f2"
+                    },
+                    fontFamily: {
+                        "headline": ["Bricolage Grotesque", "Space Grotesk"],
+                        "body": ["DM Sans", "Inter"],
+                        "label": ["JetBrains Mono", "Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .redaction-crosshair {
+            cursor: crosshair;
+        }
+        .glass-panel {
+            background-color: rgba(52, 53, 56, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #c0c1ff 0%, #8083ff 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body selection:bg-primary/30">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar (Collapsed per Workspace intent) -->
+<aside class="w-[80px] h-screen sticky left-0 top-0 bg-[#1B1B1F] flex flex-col items-center py-8 gap-6 z-50">
+<div class="mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="enhanced_encryption">enhanced_encryption</span>
+</div>
+<nav class="flex flex-col gap-4 w-full items-center">
+<button class="w-12 h-12 flex items-center justify-center rounded-lg bg-[#292A2D] text-[#C0C1FF] border-l-2 border-[#C0C1FF] transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-icon="edit_document">edit_document</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg text-[#C7C4D7] hover:bg-[#292A2D] hover:text-[#E3E2E6] transition-all">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg text-[#C7C4D7] hover:bg-[#292A2D] hover:text-[#E3E2E6] transition-all">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-lg text-[#C7C4D7] hover:bg-[#292A2D] hover:text-[#E3E2E6] transition-all">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+</button>
+</nav>
+<div class="mt-auto flex flex-col gap-4 w-full items-center">
+<button class="w-12 h-12 flex items-center justify-center rounded-lg text-[#C7C4D7] hover:bg-[#292A2D] transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant/20">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="Portrait of a professional user profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmO1eTehxMEbtUZMUYQ1D_i3cR8jXBRrwjuNqWiXN2CQtjG89rH5DNC-BFhcjGx8QkqKirePC3UxvOJnVHdID6SUtu2ewaiIcy1AhiW9aw-aJuIye84RzzkJgQzEfqU22CiGP6bKxOIWhzmlFPdGc99qdoxYj8aOvBB2YW1VS8CrGYqDeWGJQHzUNyNXKM43PW-fT32vDB1xC8a7wu2yDkOJUEaX0EhoQ2VqlpwiSpmyhxx6-X6oe8YCuTqJvoha_tAssBMLdYXg"/>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar -->
+<header class="h-16 w-full sticky top-0 z-40 bg-[#121316] border-b border-[#464554]/20 flex justify-between items-center px-8">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<span class="font-headline font-bold text-lg tracking-tight">The Vault Editorial</span>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<span class="font-label text-[0.6875rem] uppercase tracking-widest text-on-surface-variant">Legal_Discovery_v2.pdf</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1 rounded bg-surface-container-high border border-outline-variant/10">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-label text-[0.6875rem] text-primary uppercase tracking-widest">File Status: Active</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 rounded bg-primary/10 border border-primary/20">
+<span class="font-label text-[0.6875rem] text-primary font-bold">PII Scan: 84%</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label text-[0.6875rem] uppercase tracking-widest text-[#C7C4D7] hover:text-white transition-opacity cursor-crosshair">Export Vault</button>
+<button class="px-4 py-2 rounded-md primary-gradient text-on-primary-container font-headline font-bold text-xs uppercase tracking-wider transition-all active:scale-95">Finalize Redaction</button>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" data-icon="security">security</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-white" data-icon="help_outline">help_outline</span>
+</div>
+</div>
+</header>
+<!-- Workspace Body -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Left Sidebar: Tools -->
+<nav class="w-20 bg-surface-container-low flex flex-col items-center py-6 gap-6 border-r border-outline-variant/10">
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="w-10 h-10 flex items-center justify-center rounded-md bg-surface-container-highest text-primary shadow-sm">
+<span class="material-symbols-outlined" data-icon="near_me">near_me</span>
+</div>
+<span class="font-label text-[0.5rem] uppercase text-on-surface-variant group-hover:text-primary transition-colors">Select</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="w-10 h-10 flex items-center justify-center rounded-md hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="format_shapes">format_shapes</span>
+</div>
+<span class="font-label text-[0.5rem] uppercase text-on-surface-variant">Area</span>
+</div>
+<div class="group flex flex-col items-center gap-1 cursor-pointer">
+<div class="w-10 h-10 flex items-center justify-center rounded-md hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="ink_eraser">ink_eraser</span>
+</div>
+<span class="font-label text-[0.5rem] uppercase text-on-surface-variant">Manual</span>
+</div>
+<div class="h-[1px] w-8 bg-outline-variant/20"></div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary-container/20 text-primary border border-primary/30 hover:bg-primary-container/30 transition-all group relative">
+<span class="material-symbols-outlined" data-icon="auto_fix_high" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+<div class="absolute left-14 bg-surface-container-highest px-2 py-1 rounded text-[0.6rem] whitespace-nowrap hidden group-hover:block border border-outline-variant/20">Auto Scan</div>
+</button>
+</nav>
+<!-- Center: PDF Viewer -->
+<section class="flex-1 bg-surface-container-lowest p-10 overflow-auto flex justify-center redaction-crosshair">
+<div class="w-full max-w-4xl bg-white shadow-2xl min-h-[1200px] p-16 relative rounded-sm">
+<!-- Simulated PDF Content -->
+<div class="space-y-6">
+<div class="h-8 w-1/3 bg-slate-100 rounded"></div>
+<div class="space-y-3">
+<div class="h-4 w-full bg-slate-50 rounded"></div>
+<div class="h-4 w-full bg-slate-50 rounded"></div>
+<div class="h-4 w-[90%] bg-slate-50 rounded"></div>
+</div>
+<div class="py-8 px-6 border-l-4 border-primary/20 bg-primary/5 rounded">
+<p class="text-slate-800 font-serif text-lg leading-relaxed">
+                                    Subject: Confidential Disclosure regarding project <span class="bg-primary/20 text-primary-container px-1 rounded-sm">AX-9001</span>. 
+                                    The individual known as <span class="bg-black text-white px-2">REDACTED</span> was seen at the 
+                                    location <span class="bg-primary/20 text-primary-container px-1 rounded-sm">1245 Harbor Drive</span> on the date of 
+                                    <span class="bg-primary/20 text-primary-container px-1 rounded-sm">October 14, 2023</span>.
+                                </p>
+</div>
+<div class="space-y-3 pt-4">
+<div class="h-4 w-full bg-slate-50 rounded"></div>
+<div class="h-4 w-full bg-slate-50 rounded flex items-center px-1">
+<span class="h-3 w-32 bg-black"></span>
+<span class="ml-2 h-3 w-48 bg-slate-50"></span>
+</div>
+<div class="h-4 w-[85%] bg-slate-50 rounded"></div>
+<div class="h-4 w-[95%] bg-slate-50 rounded"></div>
+</div>
+<div class="grid grid-cols-2 gap-8 pt-10">
+<div class="h-40 bg-slate-50 rounded border border-slate-100 flex items-center justify-center text-slate-300">
+<span class="material-symbols-outlined text-4xl" data-icon="image">image</span>
+</div>
+<div class="space-y-4">
+<div class="h-4 w-full bg-slate-100 rounded"></div>
+<div class="h-4 w-full bg-slate-100 rounded"></div>
+<div class="h-4 w-3/4 bg-slate-100 rounded"></div>
+<div class="h-10 w-full bg-black mt-4 rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- Floating Controls Overlay -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 glass-panel border border-outline-variant/20 px-6 py-3 rounded-full flex items-center gap-6 shadow-2xl">
+<div class="flex items-center gap-2">
+<button class="p-1 hover:bg-surface-bright rounded text-on-surface-variant"><span class="material-symbols-outlined" data-icon="remove">remove</span></button>
+<span class="font-label text-xs w-12 text-center">125%</span>
+<button class="p-1 hover:bg-surface-bright rounded text-on-surface-variant"><span class="material-symbols-outlined" data-icon="add">add</span></button>
+</div>
+<div class="h-4 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="first_page">first_page</span>
+<span class="font-label text-xs">Page 4 of 12</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="last_page">last_page</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Sidebar: Inspection Panel -->
+<aside class="w-[320px] bg-surface-container flex flex-col border-l border-outline-variant/10">
+<div class="p-6 border-b border-outline-variant/10">
+<h2 class="font-headline text-lg font-bold text-on-surface">Detected PII</h2>
+<p class="font-label text-[0.6rem] text-on-surface-variant uppercase tracking-tighter mt-1">Intelligence Engine v4.2</p>
+</div>
+<div class="flex-1 overflow-y-auto p-4 space-y-4">
+<!-- Entity Group -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-2">
+<span class="font-label text-[0.65rem] uppercase tracking-widest text-on-surface-variant">Addresses (12)</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant cursor-pointer" data-icon="unfold_more">unfold_more</span>
+</div>
+<div class="space-y-1">
+<div class="group flex items-center gap-3 p-3 bg-surface-container-high rounded-lg border-l-2 border-primary hover:bg-surface-bright transition-colors">
+<input checked="" class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<p class="font-label text-xs truncate">1245 Harbor Drive</p>
+<p class="font-label text-[0.6rem] text-primary/70">Probability: 0.98</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+</div>
+</div>
+</div>
+<!-- Entity Group -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-2">
+<span class="font-label text-[0.65rem] uppercase tracking-widest text-on-surface-variant">SSNs / Identifiers (04)</span>
+</div>
+<div class="space-y-1">
+<div class="group flex items-center gap-3 p-3 bg-surface-container-high rounded-lg border-l-2 border-error hover:bg-surface-bright transition-colors">
+<input class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<p class="font-label text-xs truncate">***-**-8842</p>
+<p class="font-label text-[0.6rem] text-error/70">Flagged: High Risk</p>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+</div>
+<div class="group flex items-center gap-3 p-3 bg-surface-container-high rounded-lg border-l-2 border-primary hover:bg-surface-bright transition-colors">
+<input checked="" class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<p class="font-label text-xs truncate">ID-993-221-A</p>
+<p class="font-label text-[0.6rem] text-primary/70">Document Ref</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Entity Group -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-2">
+<span class="font-label text-[0.65rem] uppercase tracking-widest text-on-surface-variant">Dates &amp; Times (08)</span>
+</div>
+<div class="space-y-1">
+<div class="group flex items-center gap-3 p-3 bg-surface-container-high rounded-lg border-l-2 border-primary hover:bg-surface-bright transition-colors">
+<input checked="" class="rounded-sm bg-surface-container-lowest border-outline-variant text-primary focus:ring-0" type="checkbox"/>
+<div class="flex-1 min-w-0">
+<p class="font-label text-xs truncate">October 14, 2023</p>
+<p class="font-label text-[0.6rem] text-primary/70">Found in Body</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high border-t border-outline-variant/10 space-y-3">
+<div class="flex justify-between font-label text-[0.65rem] uppercase text-on-surface-variant px-1">
+<span>Selected Items</span>
+<span class="text-primary font-bold">18 Total</span>
+</div>
+<button class="w-full py-4 primary-gradient text-on-primary-container font-headline font-bold text-sm uppercase tracking-widest rounded transition-all hover:brightness-110 active:scale-[0.98] shadow-lg shadow-primary/10">
+                            Redact All Selected
+                        </button>
+<button class="w-full py-2 bg-surface-container-lowest text-on-surface-variant font-label text-[0.6rem] uppercase tracking-widest rounded border border-outline-variant/20 hover:text-white transition-colors">
+                            Clear Suggestions
+                        </button>
+</div>
+</aside>
+</main>
+</div>
+</div>
+</body></html>
